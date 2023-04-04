@@ -80,6 +80,8 @@ class _TopPart extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
     final now = DateTime(
       DateTime.now().year,
       DateTime.now().month,
@@ -89,28 +91,22 @@ class _TopPart extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const Text(
+          Text(
             "Su & Kee",
-            style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'Alkatra',
-              fontSize: 80,
-            ),
+            style: textTheme.displayMedium,
+            // style:
           ),
           Column(
             children: [
-              const Text(
+              Text(
                 "우리 처음 만난 날",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'Alkatra',
-                  fontSize: 30,
-                ),
+                style: textTheme.displayLarge,
+                // style:
               ),
               Text(
                 "${selectedDate.year}.${selectedDate.month}.${selectedDate.day}",
-                style: const TextStyle(
-                    color: Colors.white, fontFamily: 'Alkatra', fontSize: 20),
+                style: textTheme.bodySmall,
+                // style: const
               ),
             ],
           ),
@@ -123,18 +119,12 @@ class _TopPart extends StatelessWidget {
             ),
           ),
           Text(
-            "D + ${DateTime(
-                  now.year,
-                  now.month,
-                  now.day,
-                ).difference(selectedDate).inDays + 1}",
-            style: const TextStyle(
-              color: Colors.white,
-              fontFamily: 'Alkatra',
-              fontSize: 50,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
+              "D + ${DateTime(
+                    now.year,
+                    now.month,
+                    now.day,
+                  ).difference(selectedDate).inDays + 1}",
+              style: textTheme.displaySmall),
         ],
       ),
     );
